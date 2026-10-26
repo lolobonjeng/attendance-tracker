@@ -1,0 +1,9 @@
+{
+  "versionCode": 1,
+  "versionName": "1.0.0",
+  "url": "https://github.com/lolobonjeng/attendance-tracker/releases/latest/download/attendance-tracker.apk",
+  "notes": "First public build. Adds a date range picker and an Excel export to Reports.",
+  "size": 0,
+  "sha256": "",
+  "mandatory": false
+}

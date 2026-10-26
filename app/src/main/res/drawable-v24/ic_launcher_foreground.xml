@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- clock ring -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M35,48a19,19 0 1,0 38,0a19,19 0 1,0 -38,0"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="5" />
+
+    <!-- hour hand -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,48L54,37.5"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.4" />
+
+    <!-- minute hand -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,48L62.4,52.6"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.4" />
+
+    <!-- centre dot -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M51.4,48a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" />
+
+    <!-- badge plate -->
+    <path
+        android:fillColor="#FF0B1224"
+        android:pathData="M54.5,70a15.5,15.5 0 1,0 31,0a15.5,15.5 0 1,0 -31,0" />
+
+    <path
+        android:fillColor="#FF34D399"
+        android:pathData="M56.5,70a13.5,13.5 0 1,0 27,0a13.5,13.5 0 1,0 -27,0" />
+
+    <!-- check mark -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M64.5,70L68.3,73.8L75.5,65.6"
+        android:strokeColor="#FF081422"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="4.6" />
+</vector>
