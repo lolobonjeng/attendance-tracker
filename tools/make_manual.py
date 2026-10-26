@@ -1348,8 +1348,8 @@ def page_settings(doc):
          ["Autosave", "On", "Writes a backup after every change."],
          ["Backup now", "-", "Writes an extra dated backup right away."],
          ["Restore", "-", "Pick a backup from Downloads, or browse for a file."],
-         ["Auto update check", "On", "Looks for a new version at most once a day."],
-         ["Update link", "empty", "Where the app looks for new versions."]],
+         ["Check for updates", "-", "Asks the server right away, without waiting a day."],
+         ["Check automatically", "On", "Looks for a new build once a day."]],
         [104, 96, 286], size=8.2, leading=10.6, pad=5)
 
     page.note("Changing the shift later",
@@ -1438,7 +1438,7 @@ def page_updates(doc):
               color=WARN, tint=(1.0, 0.98, 0.94))
 
     page.h2("If you would rather not be asked", 4)
-    page.para("Turn off Check for updates in Settings. The app will stop looking on its "
+    page.para("Turn off Check automatically in Settings. The app will stop looking on its "
               "own, and you can still tap Check now whenever you feel like it, so nothing "
               "is ever forced on you.")
     page.end()

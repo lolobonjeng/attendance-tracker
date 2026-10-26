@@ -107,8 +107,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         row(b.rowCheckUpdate, R.drawable.ic_refresh, R.string.settings_update_check,
                 "Installed " + BuildConfig.VERSION_NAME);
-        row(b.rowUpdateUrl, R.drawable.ic_download, R.string.settings_update_url,
-                c.updateUrl == null || c.updateUrl.isEmpty() ? "Not set" : c.updateUrl);
         row(b.rowVersion, R.drawable.ic_info, R.string.settings_version,
                 BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")");
         row(b.rowPrivacy, R.drawable.ic_shield, R.string.settings_privacy_title,
@@ -120,7 +118,7 @@ public class SettingsActivity extends AppCompatActivity {
         switchRow(b.switchAutoBackup, R.string.settings_autobackup,
                 R.string.settings_autobackup_desc, c.autoBackup);
         switchRow(b.switchAutoUpdate, R.string.settings_update_auto,
-                R.string.settings_update_url, c.autoUpdateCheck);
+                R.string.settings_update_auto_desc, c.autoUpdateCheck);
 
         b.txtBuild.setText("com.cph.att · built for Android 5.0+");
     }
@@ -392,23 +390,6 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         b.rowCheckUpdate.getRoot().setOnClickListener(v -> UpdateFlow.check(this, false));
-
-        b.rowUpdateUrl.getRoot().setOnClickListener(v ->
-                SweetDialog.builder(this)
-                        .type(SweetDialog.TYPE_QUESTION)
-                        .title(getString(R.string.settings_update_url))
-                        .message("JSON manifest with versionCode, versionName, url and notes.")
-                        .input("https://…/update.json", repo.config().updateUrl)
-                        .confirmText(getString(R.string.dlg_save))
-                        .cancelText(getString(R.string.dlg_cancel))
-                        .onConfirm(dialog -> {
-                            repo.config().updateUrl = dialog.inputText();
-                            repo.saveConfig();
-                            dialog.dismiss();
-                            render();
-                        })
-                        .build()
-                        .show());
     }
 
     private void wireAboutRows() {

@@ -24,30 +24,15 @@ public final class UpdateFlow {
 
     public static void check(final Activity activity, final boolean silent) {
         final Repo repo = Repo.get(activity);
-        String url = repo.config().updateUrl;
-        if (url == null || url.trim().isEmpty()) {
+        String stored = repo.config().updateUrl;
+        // Installs that saved settings before the URL was baked in store an empty
+        // string, so fall back to the built-in manifest instead of giving up.
+        final String url = stored == null || stored.trim().isEmpty()
+                ? com.cph.att.core.AppConfig.DEFAULT_UPDATE_URL : stored.trim();
+        if (url.isEmpty()) {
             if (silent) return;
-            SweetDialog.builder(activity)
-                    .type(SweetDialog.TYPE_INFO)
-                    .title("Set an update link")
-                    .message("Paste the URL of a JSON manifest. The app reads versionCode, "
-                            + "versionName, url, notes, size and sha256 from it.")
-                    .input("https://…/update.json", "")
-                    .confirmText("Save and check")
-                    .cancelText(activity.getString(R.string.dlg_cancel))
-                    .onConfirm(dialog -> {
-                        String value = dialog.inputText();
-                        if (value.isEmpty()) {
-                            dialog.dismiss();
-                            return;
-                        }
-                        repo.config().updateUrl = value;
-                        repo.saveConfigQuietly();
-                        dialog.dismiss();
-                        check(activity, false);
-                    })
-                    .build()
-                    .show();
+            SweetDialog.info(activity, "No update source",
+                    "This build has no update link, so it cannot check for a newer version.");
             return;
         }
 

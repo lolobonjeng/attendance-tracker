@@ -3,8 +3,12 @@ package com.cph.att.core;
 /** Mutable snapshot of the app settings. Mirrors the settings table. */
 public class AppConfig {
 
-    /** Set from Settings > Update link, or by pasting it into the first check. */
-    public static final String DEFAULT_UPDATE_URL = "";
+    /**
+     * Manifest the app checks for new builds. Baked in on purpose: the app is meant to
+     * update itself with no setup, so this is not exposed in Settings.
+     */
+    public static final String DEFAULT_UPDATE_URL =
+            "https://raw.githubusercontent.com/lolobonjeng/attendance-tracker/main/update.json";
 
     public int shiftStart = 540;
     public int shiftEnd = 1080;
